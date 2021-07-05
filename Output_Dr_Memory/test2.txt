@@ -1,0 +1,39 @@
+Dr. Memory version 2.2.0 build 1 built on Jul  1 2019 00:42:20
+Windows version: WinVer=105;Rel=2009;Build=19043;Edition=Core
+Dr. Memory results for pid 22616: "test2.exe"
+Application cmdline: "C:\Users\taylo\source\repos\test2\test2.exe"
+Recorded 117 suppression(s) from default C:\Program Files (x86)\Dr. Memory\bin\suppress-default.txt
+
+Error #1: INVALID HEAP ARGUMENT to free 0x019955d8
+# 0 replace_free               [d:\drmemory_package\common\alloc_replace.c:2707]
+# 1 main                       [C:\Users\taylo\source\repos\test2\test2.c:14]
+Note: @0:00:00.346 in thread 10692
+Note: prev lower malloc:  0x01995140-0x01995580
+Note: memory was previously freed here:
+Note: # 0 replace_free               [d:\drmemory_package\common\alloc_replace.c:2707]
+Note: # 1 main                       [C:\Users\taylo\source\repos\test2\test2.c:13]
+
+===========================================================================
+FINAL SUMMARY:
+
+DUPLICATE ERROR COUNTS:
+
+SUPPRESSIONS USED:
+
+ERRORS FOUND:
+      0 unique,     0 total unaddressable access(es)
+      0 unique,     0 total uninitialized access(es)
+      1 unique,     1 total invalid heap argument(s)
+      0 unique,     0 total GDI usage error(s)
+      0 unique,     0 total handle leak(s)
+      0 unique,     0 total warning(s)
+      0 unique,     0 total,      0 byte(s) of leak(s)
+      0 unique,     0 total,      0 byte(s) of possible leak(s)
+ERRORS IGNORED:
+      1 potential error(s) (suspected false positives)
+         (details: C:\Users\taylo\AppData\Roaming\Dr. Memory\DrMemory-test2.exe.22616.000\potential_errors.txt)
+      2 potential leak(s) (suspected false positives)
+         (details: C:\Users\taylo\AppData\Roaming\Dr. Memory\DrMemory-test2.exe.22616.000\potential_errors.txt)
+     20 unique,    72 total,  12908 byte(s) of still-reachable allocation(s)
+         (re-run with "-show_reachable" for details)
+Details: C:\Users\taylo\AppData\Roaming\Dr. Memory\DrMemory-test2.exe.22616.000\results.txt

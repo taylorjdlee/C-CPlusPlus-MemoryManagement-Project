@@ -1,0 +1,56 @@
+taylor@taylor-VirtualBox:~/valgrind$ valgrind --tool=memcheck --leak-check=yes --show-reachable=yes --num-callers=20 --track-fds=yes ./test4
+==3237== Memcheck, a memory error detector
+==3237== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==3237== Using Valgrind-3.15.0 and LibVEX; rerun with -h for copyright info
+==3237== Command: ./test4
+==3237== 
+==3237== Invalid read of size 1
+==3237==    at 0x4843544: strchrnul (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3237==    by 0x48DAA84: __find_specmb (printf-parse.h:111)
+==3237==    by 0x48DAA84: __vfprintf_internal (vfprintf-internal.c:1365)
+==3237==    by 0x48C5EBE: printf (printf.c:33)
+==3237==    by 0x1091D9: main (test4.c:14)
+==3237==  Address 0x4a560a0 is 0 bytes inside a block of size 12 free'd
+==3237==    at 0x483CA3F: free (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3237==    by 0x1091C8: main (test4.c:13)
+==3237==  Block was alloc'd at
+==3237==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3237==    by 0x1091B8: main (test4.c:12)
+==3237== 
+==3237== Invalid read of size 1
+==3237==    at 0x48DAB12: __vfprintf_internal (vfprintf-internal.c:1377)
+==3237==    by 0x48C5EBE: printf (printf.c:33)
+==3237==    by 0x1091D9: main (test4.c:14)
+==3237==  Address 0x4a560a0 is 0 bytes inside a block of size 12 free'd
+==3237==    at 0x483CA3F: free (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3237==    by 0x1091C8: main (test4.c:13)
+==3237==  Block was alloc'd at
+==3237==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3237==    by 0x1091B8: main (test4.c:12)
+==3237== 
+==3237== Invalid write of size 1
+==3237==    at 0x1091EC: main (test4.c:18)
+==3237==  Address 0x4a560f0 is 0 bytes after a block of size 0 alloc'd
+==3237==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3237==    by 0x1091E3: main (test4.c:17)
+==3237== 
+==3237== 
+==3237== FILE DESCRIPTORS: 3 open at exit.
+==3237== Open file descriptor 2: /dev/pts/0
+==3237==    <inherited from parent>
+==3237== 
+==3237== Open file descriptor 1: /dev/pts/0
+==3237==    <inherited from parent>
+==3237== 
+==3237== Open file descriptor 0: /dev/pts/0
+==3237==    <inherited from parent>
+==3237== 
+==3237== 
+==3237== HEAP SUMMARY:
+==3237==     in use at exit: 0 bytes in 0 blocks
+==3237==   total heap usage: 3 allocs, 3 frees, 31 bytes allocated
+==3237== 
+==3237== All heap blocks were freed -- no leaks are possible
+==3237== 
+==3237== For lists of detected and suppressed errors, rerun with: -s
+==3237== ERROR SUMMARY: 3 errors from 3 contexts (suppressed: 0 from 0)

@@ -1,0 +1,54 @@
+Dr. Memory version 2.2.0 build 1 built on Jul  1 2019 00:42:20
+Windows version: WinVer=105;Rel=2009;Build=19043;Edition=Core
+Dr. Memory results for pid 20932: "test3.exe"
+Application cmdline: "C:\Users\taylo\source\repos\test3\test3.exe"
+Recorded 117 suppression(s) from default C:\Program Files (x86)\Dr. Memory\bin\suppress-default.txt
+
+Error #1: UNINITIALIZED READ: reading register ebx
+# 0 __crt_stdio_output::output_processor<>::type_case_integer               [minkernel\crts\ucrt\inc\corecrt_internal_stdio_output.h:2554]
+# 1 __crt_stdio_output::output_processor<>::state_case_type                 [minkernel\crts\ucrt\inc\corecrt_internal_stdio_output.h:2082]
+# 2 __crt_stdio_output::output_processor<>::process                         [minkernel\crts\ucrt\inc\corecrt_internal_stdio_output.h:1699]
+# 3 __crt_seh_guarded_call<>::operator()<>                                  [VCCRT\vcruntime\inc\internal_shared.h:204]
+# 4 __stdio_common_vfprintf                                                 [minkernel\crts\ucrt\src\appcrt\stdio\output.cpp:61]
+# 5 _vfprintf_l                                                             [C:\Program Files (x86)\Windows Kits\10\include\10.0.19041.0\ucrt\stdio.h:645]
+# 6 printf                                                                  [C:\Program Files (x86)\Windows Kits\10\include\10.0.19041.0\ucrt\stdio.h:960]
+# 7 main                                                                    [C:\Users\taylo\source\repos\test3\test3.c:6]
+Note: @0:00:00.390 in thread 18316
+Note: instruction: test   %ebx %ebx
+
+Error #2: UNINITIALIZED READ: reading register edi
+# 0 __crt_stdio_output::output_processor<>::type_case_integer               [minkernel\crts\ucrt\inc\corecrt_internal_stdio_output.h:2554]
+# 1 __crt_stdio_output::output_processor<>::state_case_type                 [minkernel\crts\ucrt\inc\corecrt_internal_stdio_output.h:2082]
+# 2 __crt_stdio_output::output_processor<>::process                         [minkernel\crts\ucrt\inc\corecrt_internal_stdio_output.h:1699]
+# 3 __crt_seh_guarded_call<>::operator()<>                                  [VCCRT\vcruntime\inc\internal_shared.h:204]
+# 4 __stdio_common_vfprintf                                                 [minkernel\crts\ucrt\src\appcrt\stdio\output.cpp:61]
+# 5 _vfprintf_l                                                             [C:\Program Files (x86)\Windows Kits\10\include\10.0.19041.0\ucrt\stdio.h:645]
+# 6 printf                                                                  [C:\Program Files (x86)\Windows Kits\10\include\10.0.19041.0\ucrt\stdio.h:960]
+# 7 main                                                                    [C:\Users\taylo\source\repos\test3\test3.c:6]
+Note: @0:00:00.392 in thread 18316
+Note: instruction: test   %edi %edi
+
+===========================================================================
+FINAL SUMMARY:
+
+DUPLICATE ERROR COUNTS:
+
+SUPPRESSIONS USED:
+
+ERRORS FOUND:
+      0 unique,     0 total unaddressable access(es)
+      2 unique,     2 total uninitialized access(es)
+      0 unique,     0 total invalid heap argument(s)
+      0 unique,     0 total GDI usage error(s)
+      0 unique,     0 total handle leak(s)
+      0 unique,     0 total warning(s)
+      0 unique,     0 total,      0 byte(s) of leak(s)
+      0 unique,     0 total,      0 byte(s) of possible leak(s)
+ERRORS IGNORED:
+      1 potential error(s) (suspected false positives)
+         (details: C:\Users\taylo\AppData\Roaming\Dr. Memory\DrMemory-test3.exe.20932.000\potential_errors.txt)
+      2 potential leak(s) (suspected false positives)
+         (details: C:\Users\taylo\AppData\Roaming\Dr. Memory\DrMemory-test3.exe.20932.000\potential_errors.txt)
+     21 unique,    73 total,  17004 byte(s) of still-reachable allocation(s)
+         (re-run with "-show_reachable" for details)
+Details: C:\Users\taylo\AppData\Roaming\Dr. Memory\DrMemory-test3.exe.20932.000\results.txt

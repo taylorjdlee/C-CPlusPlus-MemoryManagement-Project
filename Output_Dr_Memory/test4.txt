@@ -1,0 +1,53 @@
+Dr. Memory version 2.2.0 build 1 built on Jul  1 2019 00:42:20
+Windows version: WinVer=105;Rel=2009;Build=19043;Edition=Core
+Dr. Memory results for pid 21484: "test4.exe"
+Application cmdline: "C:\Users\taylo\source\repos\test4\test4.exe"
+Recorded 117 suppression(s) from default C:\Program Files (x86)\Dr. Memory\bin\suppress-default.txt
+
+Error #1: UNADDRESSABLE ACCESS of freed memory: reading 0x019255d8-0x019255d9 1 byte(s)
+# 0 __crt_stdio_output::output_processor<>::process                     [minkernel\crts\ucrt\inc\corecrt_internal_stdio_output.h:1677]
+# 1 <lambda_0be4ab1c2a6918fda4e39227d83ea893>::operator()               [minkernel\crts\ucrt\src\appcrt\stdio\output.cpp:49]
+# 2 __crt_seh_guarded_call<>::operator()<>                              [VCCRT\vcruntime\inc\internal_shared.h:204]
+# 3 __stdio_common_vfprintf                                             [minkernel\crts\ucrt\src\appcrt\stdio\output.cpp:61]
+# 4 _vfprintf_l                                                         [C:\Program Files (x86)\Windows Kits\10\include\10.0.19041.0\ucrt\stdio.h:645]
+# 5 printf                                                              [C:\Program Files (x86)\Windows Kits\10\include\10.0.19041.0\ucrt\stdio.h:960]
+# 6 main                                                                [C:\Users\taylo\source\repos\test4\test4.c:14]
+Note: @0:00:00.345 in thread 17216
+Note: next higher malloc: 0x01925608-0x01926608
+Note: prev lower malloc:  0x01925140-0x01925580
+Note: 0x019255d8-0x019255d9 overlaps memory 0x019255d8-0x019255e4 that was freed here:
+Note: # 0 replace_free               [d:\drmemory_package\common\alloc_replace.c:2707]
+Note: # 1 main                       [C:\Users\taylo\source\repos\test4\test4.c:13]
+Note: instruction: mov    (%eax) -> %al
+
+Error #2: UNADDRESSABLE ACCESS beyond heap bounds: writing 0x01926628-0x01926629 1 byte(s)
+# 0 main               [C:\Users\taylo\source\repos\test4\test4.c:18]
+Note: @0:00:00.409 in thread 17216
+Note: refers to 0 byte(s) beyond last valid byte in prior malloc
+Note: prev lower malloc:  0x01926628-0x01926628
+Note: instruction: mov    $0x01 -> (%eax)
+
+===========================================================================
+FINAL SUMMARY:
+
+DUPLICATE ERROR COUNTS:
+
+SUPPRESSIONS USED:
+
+ERRORS FOUND:
+      2 unique,     2 total unaddressable access(es)
+      0 unique,     0 total uninitialized access(es)
+      0 unique,     0 total invalid heap argument(s)
+      0 unique,     0 total GDI usage error(s)
+      0 unique,     0 total handle leak(s)
+      0 unique,     0 total warning(s)
+      0 unique,     0 total,      0 byte(s) of leak(s)
+      0 unique,     0 total,      0 byte(s) of possible leak(s)
+ERRORS IGNORED:
+      1 potential error(s) (suspected false positives)
+         (details: C:\Users\taylo\AppData\Roaming\Dr. Memory\DrMemory-test4.exe.21484.000\potential_errors.txt)
+      2 potential leak(s) (suspected false positives)
+         (details: C:\Users\taylo\AppData\Roaming\Dr. Memory\DrMemory-test4.exe.21484.000\potential_errors.txt)
+     21 unique,    73 total,  17004 byte(s) of still-reachable allocation(s)
+         (re-run with "-show_reachable" for details)
+Details: C:\Users\taylo\AppData\Roaming\Dr. Memory\DrMemory-test4.exe.21484.000\results.txt

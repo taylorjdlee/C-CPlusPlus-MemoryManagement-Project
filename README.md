@@ -16,7 +16,7 @@
 * Download the Dr.Memory installer from [here] (https://drmemory.org/page_download.html)
 * Run the Dr.Memory.msi file
 * Once installed you can drag the generated .exe file onto the Dr.Memory desktop application it should appear similar to below
-[![Toolbox demo](https://i.imgur.com/S6BcqE5.png)]
+* ![Dr.Memory](https://i.imgur.com/S6BcqE5.png)
 
 
 

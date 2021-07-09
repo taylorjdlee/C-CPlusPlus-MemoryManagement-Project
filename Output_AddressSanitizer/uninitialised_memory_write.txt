@@ -1,0 +1,2 @@
+C:\Users\taylo\source\repos\uninitialised_memory_write_asan>uninitialised_memory_write.exe
+☺☺╛╛╛╛╛╛╛╛╛

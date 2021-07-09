@@ -1,0 +1,2 @@
+C:\Users\taylo\source\repos\use_after_free_asan>use_after_free.exe
+☺

@@ -1,0 +1,2 @@
+C:\Users\taylo\source\repos\memleak_asan>memory_leak.exe
+==30936==AddressSanitizer: detect_leaks is not supported on this platform.

@@ -1,0 +1,51 @@
+C:\Users\taylo\source\repos\stack_out_of_bounds_asan>stack_out_of_bounds.exe
+=================================================================
+==20976==ERROR: AddressSanitizer: stack-buffer-overflow on address 0x0095f874 at pc 0x000712a6 bp 0x0095f6bc sp 0x0095f6b0
+READ of size 4 at 0x0095f874 thread T0
+    #0 0x712a5 in main C:\Users\taylo\source\repos\stack_out_of_bounds_asan\stack_out_of_bounds.c:4
+    #1 0xa8d2b in __scrt_common_main_seh d:\agent\_work\4\s\src\vctools\crt\vcstartup\src\startup\exe_common.inl:288
+    #2 0x7765fa28 in BaseThreadInitThunk+0x18 (C:\Windows\System32\KERNEL32.DLL+0x6b81fa28)
+    #3 0x77d97a9d in RtlGetAppContainerNamedObjectPath+0x11d (C:\Windows\SYSTEM32\ntdll.dll+0x4b2e7a9d)
+    #4 0x77d97a6d in RtlGetAppContainerNamedObjectPath+0xed (C:\Windows\SYSTEM32\ntdll.dll+0x4b2e7a6d)
+
+Address 0x0095f874 is located in stack of thread T0 at offset 420 in frame
+    #0 0x7118f in main C:\Users\taylo\source\repos\stack_out_of_bounds_asan\stack_out_of_bounds.c:1
+
+  This frame has 1 object(s):
+    [16, 416) 'stack_array' <== Memory access at offset 420 overflows this variable
+HINT: this may be a false positive if your program uses some custom stack unwind mechanism, swapcontext or vfork
+      (longjmp, SEH and C++ exceptions *are* supported)
+SUMMARY: AddressSanitizer: stack-buffer-overflow C:\Users\taylo\source\repos\stack_out_of_bounds_asan\stack_out_of_bounds.c:4 in main
+Shadow bytes around the buggy address:
+  0x3012beb0: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x3012bec0: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x3012bed0: 00 00 00 00 00 00 00 00 00 00 f1 f1 00 00 00 00
+  0x3012bee0: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x3012bef0: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+=>0x3012bf00: 00 00 00 00 00 00 00 00 00 00 00 00 00 00[f3]f3
+  0x3012bf10: f3 f3 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x3012bf20: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x3012bf30: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x3012bf40: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x3012bf50: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+Shadow byte legend (one shadow byte represents 8 application bytes):
+  Addressable:           00
+  Partially addressable: 01 02 03 04 05 06 07
+  Heap left redzone:       fa
+  Freed heap region:       fd
+  Stack left redzone:      f1
+  Stack mid redzone:       f2
+  Stack right redzone:     f3
+  Stack after return:      f5
+  Stack use after scope:   f8
+  Global redzone:          f9
+  Global init order:       f6
+  Poisoned by user:        f7
+  Container overflow:      fc
+  Array cookie:            ac
+  Intra object redzone:    bb
+  ASan internal:           fe
+  Left alloca redzone:     ca
+  Right alloca redzone:    cb
+  Shadow gap:              cc
+==20976==ABORTING

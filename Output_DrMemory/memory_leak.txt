@@ -1,0 +1,38 @@
+Dr. Memory version 2.2.0 build 1 built on Jul  1 2019 00:42:20
+Windows version: WinVer=105;Rel=2009;Build=19043;Edition=Core
+Dr. Memory results for pid 11920: "memory_leak.exe"
+Application cmdline: "C:\Users\taylo\source\repos\memleak_drmem\memory_leak.exe"
+Recorded 117 suppression(s) from default C:\Program Files (x86)\Dr. Memory\bin\suppress-default.txt
+
+Error #1: LEAK 19 direct bytes 0x00fc55b0-0x00fc55c3 + 0 indirect bytes
+# 0 replace_malloc               [d:\drmemory_package\common\alloc_replace.c:2577]
+# 1 main                         [C:\Users\taylo\source\repos\memleak_drmem\memory_leak.c:8]
+
+Error #2: LEAK 16 direct bytes 0x00fc5618-0x00fc5628 + 0 indirect bytes
+# 0 replace_malloc               [d:\drmemory_package\common\alloc_replace.c:2577]
+# 1 main                         [C:\Users\taylo\source\repos\memleak_drmem\memory_leak.c:15]
+
+===========================================================================
+FINAL SUMMARY:
+
+DUPLICATE ERROR COUNTS:
+
+SUPPRESSIONS USED:
+
+ERRORS FOUND:
+      0 unique,     0 total unaddressable access(es)
+      0 unique,     0 total uninitialized access(es)
+      0 unique,     0 total invalid heap argument(s)
+      0 unique,     0 total GDI usage error(s)
+      0 unique,     0 total handle leak(s)
+      0 unique,     0 total warning(s)
+      2 unique,     2 total,     35 byte(s) of leak(s)
+      0 unique,     0 total,      0 byte(s) of possible leak(s)
+ERRORS IGNORED:
+      1 potential error(s) (suspected false positives)
+         (details: C:\Users\taylo\AppData\Roaming\Dr. Memory\DrMemory-memory_leak.exe.11920.000\potential_errors.txt)
+      2 potential leak(s) (suspected false positives)
+         (details: C:\Users\taylo\AppData\Roaming\Dr. Memory\DrMemory-memory_leak.exe.11920.000\potential_errors.txt)
+     20 unique,    72 total,  12922 byte(s) of still-reachable allocation(s)
+         (re-run with "-show_reachable" for details)
+Details: C:\Users\taylo\AppData\Roaming\Dr. Memory\DrMemory-memory_leak.exe.11920.000\results.txt

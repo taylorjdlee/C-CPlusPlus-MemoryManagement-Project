@@ -1,0 +1,2 @@
+C:\Users\taylo\source\repos\uninitialised_memory_read_asan>uninitialised_memory_read.exe
+x is equal to 0

@@ -1,0 +1,51 @@
+C:\Users\taylo\source\repos\use_after_return_asan>use_after_return.exe
+=================================================================
+==27904==ERROR: AddressSanitizer: stack-use-after-return on address 0x0293900d at pc 0x00951312 bp 0x007bfb88 sp 0x007bfb7c
+WRITE of size 1 at 0x0293900d thread T0
+    #0 0x951311 in main C:\Users\taylo\source\repos\use_after_return_asan\use_after_return.c:11
+    #1 0x988d2b in __scrt_common_main_seh d:\agent\_work\4\s\src\vctools\crt\vcstartup\src\startup\exe_common.inl:288
+    #2 0x7765fa28 in BaseThreadInitThunk+0x18 (C:\Windows\System32\KERNEL32.DLL+0x6b81fa28)
+    #3 0x77d97a9d in RtlGetAppContainerNamedObjectPath+0x11d (C:\Windows\SYSTEM32\ntdll.dll+0x4b2e7a9d)
+    #4 0x77d97a6d in RtlGetAppContainerNamedObjectPath+0xed (C:\Windows\SYSTEM32\ntdll.dll+0x4b2e7a6d)
+
+Address 0x0293900d is located in stack of thread T0 at offset 13 in frame
+    #0 0x95118f in foo C:\Users\taylo\source\repos\use_after_return_asan\use_after_return.c:3
+
+  This frame has 1 object(s):
+    [16, 58) 'stack_buffer' <== Memory access at offset 13 underflows this variable
+HINT: this may be a false positive if your program uses some custom stack unwind mechanism, swapcontext or vfork
+      (longjmp, SEH and C++ exceptions *are* supported)
+SUMMARY: AddressSanitizer: stack-use-after-return C:\Users\taylo\source\repos\use_after_return_asan\use_after_return.c:11 in main
+Shadow bytes around the buggy address:
+  0x305271b0: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x305271c0: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x305271d0: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x305271e0: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x305271f0: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+=>0x30527200: f5[f5]f5 f5 f5 f5 f5 f5 f5 f5 f5 f5 00 00 00 00
+  0x30527210: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x30527220: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x30527230: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x30527240: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x30527250: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+Shadow byte legend (one shadow byte represents 8 application bytes):
+  Addressable:           00
+  Partially addressable: 01 02 03 04 05 06 07
+  Heap left redzone:       fa
+  Freed heap region:       fd
+  Stack left redzone:      f1
+  Stack mid redzone:       f2
+  Stack right redzone:     f3
+  Stack after return:      f5
+  Stack use after scope:   f8
+  Global redzone:          f9
+  Global init order:       f6
+  Poisoned by user:        f7
+  Container overflow:      fc
+  Array cookie:            ac
+  Intra object redzone:    bb
+  ASan internal:           fe
+  Left alloca redzone:     ca
+  Right alloca redzone:    cb
+  Shadow gap:              cc
+==27904==ABORTING

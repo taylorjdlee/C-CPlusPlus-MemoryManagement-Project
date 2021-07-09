@@ -1,0 +1,22 @@
+C:\Users\taylo\source\repos\mismatched_free_delete_asan>mismatched_free_delete.exe
+=================================================================
+==34316==ERROR: AddressSanitizer: alloc-dealloc-mismatch (operator new [] vs free) on 0x03d00880
+    #0 0x5d2204 in free D:\agent\_work\4\s\src\vctools\crt\asan\llvm\compiler-rt\lib\asan\asan_malloc_win.cpp:110
+    #1 0x5b11a1 in main C:\Users\taylo\source\repos\mismatched_free_delete_asan\mismatched_free_delete.cpp:10
+    #2 0x5e8c3b in __scrt_common_main_seh d:\agent\_work\4\s\src\vctools\crt\vcstartup\src\startup\exe_common.inl:288
+    #3 0x7765fa28 in BaseThreadInitThunk+0x18 (C:\Windows\System32\KERNEL32.DLL+0x6b81fa28)
+    #4 0x77d97a9d in RtlGetAppContainerNamedObjectPath+0x11d (C:\Windows\SYSTEM32\ntdll.dll+0x4b2e7a9d)
+    #5 0x77d97a6d in RtlGetAppContainerNamedObjectPath+0xed (C:\Windows\SYSTEM32\ntdll.dll+0x4b2e7a6d)
+
+0x03d00880 is located 0 bytes inside of 19-byte region [0x03d00880,0x03d00893)
+allocated by thread T0 here:
+    #0 0x5e766d in operator new[] D:\agent\_work\4\s\src\vctools\crt\asan\llvm\compiler-rt\lib\asan\asan_new_delete.cpp:102
+    #1 0x5b118c in main C:\Users\taylo\source\repos\mismatched_free_delete_asan\mismatched_free_delete.cpp:9
+    #2 0x5e8c3b in __scrt_common_main_seh d:\agent\_work\4\s\src\vctools\crt\vcstartup\src\startup\exe_common.inl:288
+    #3 0x7765fa28 in BaseThreadInitThunk+0x18 (C:\Windows\System32\KERNEL32.DLL+0x6b81fa28)
+    #4 0x77d97a9d in RtlGetAppContainerNamedObjectPath+0x11d (C:\Windows\SYSTEM32\ntdll.dll+0x4b2e7a9d)
+    #5 0x77d97a6d in RtlGetAppContainerNamedObjectPath+0xed (C:\Windows\SYSTEM32\ntdll.dll+0x4b2e7a6d)
+
+SUMMARY: AddressSanitizer: alloc-dealloc-mismatch D:\agent\_work\4\s\src\vctools\crt\asan\llvm\compiler-rt\lib\asan\asan_malloc_win.cpp:110 in free
+==34316==HINT: if you don't care about these errors you may set ASAN_OPTIONS=alloc_dealloc_mismatch=0
+==34316==ABORTING

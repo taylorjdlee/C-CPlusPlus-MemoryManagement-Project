@@ -1,0 +1,39 @@
+Dr. Memory version 2.2.0 build 1 built on Jul  1 2019 00:42:20
+Windows version: WinVer=105;Rel=2009;Build=19043;Edition=Core
+Dr. Memory results for pid 11552: "double_free.exe"
+Application cmdline: "C:\Users\taylo\source\repos\double_free_drmem\double_free.exe"
+Recorded 117 suppression(s) from default C:\Program Files (x86)\Dr. Memory\bin\suppress-default.txt
+
+Error #1: INVALID HEAP ARGUMENT to free 0x011455e8
+# 0 replace_free               [d:\drmemory_package\common\alloc_replace.c:2707]
+# 1 main                       [C:\Users\taylo\source\repos\double_free_drmem\double_free.c:14]
+Note: @0:00:00.342 in thread 17432
+Note: prev lower malloc:  0x01145150-0x01145590
+Note: memory was previously freed here:
+Note: # 0 replace_free               [d:\drmemory_package\common\alloc_replace.c:2707]
+Note: # 1 main                       [C:\Users\taylo\source\repos\double_free_drmem\double_free.c:13]
+
+===========================================================================
+FINAL SUMMARY:
+
+DUPLICATE ERROR COUNTS:
+
+SUPPRESSIONS USED:
+
+ERRORS FOUND:
+      0 unique,     0 total unaddressable access(es)
+      0 unique,     0 total uninitialized access(es)
+      1 unique,     1 total invalid heap argument(s)
+      0 unique,     0 total GDI usage error(s)
+      0 unique,     0 total handle leak(s)
+      0 unique,     0 total warning(s)
+      0 unique,     0 total,      0 byte(s) of leak(s)
+      0 unique,     0 total,      0 byte(s) of possible leak(s)
+ERRORS IGNORED:
+      1 potential error(s) (suspected false positives)
+         (details: C:\Users\taylo\AppData\Roaming\Dr. Memory\DrMemory-double_free.exe.11552.000\potential_errors.txt)
+      2 potential leak(s) (suspected false positives)
+         (details: C:\Users\taylo\AppData\Roaming\Dr. Memory\DrMemory-double_free.exe.11552.000\potential_errors.txt)
+     20 unique,    72 total,  12926 byte(s) of still-reachable allocation(s)
+         (re-run with "-show_reachable" for details)
+Details: C:\Users\taylo\AppData\Roaming\Dr. Memory\DrMemory-double_free.exe.11552.000\results.txt

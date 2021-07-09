@@ -1,0 +1,36 @@
+Dr. Memory version 2.2.0 build 1 built on Jul  1 2019 00:42:20
+Windows version: WinVer=105;Rel=2009;Build=19043;Edition=Core
+Dr. Memory results for pid 32492: "use_after_return.exe"
+Application cmdline: "C:\Users\taylo\source\repos\use_after_return_drmem\use_after_return.exe"
+Recorded 117 suppression(s) from default C:\Program Files (x86)\Dr. Memory\bin\suppress-default.txt
+
+Error #1: UNADDRESSABLE ACCESS beyond top of stack: writing 0x010ffce5-0x010ffce6 1 byte(s)
+# 0 main               [C:\Users\taylo\source\repos\use_after_return_drmem\use_after_return.c:11]
+Note: @0:00:00.338 in thread 31124
+Note: 0x010ffce5 refers to 43 byte(s) beyond the top of the stack 0x010ffd10
+Note: instruction: mov    $0x2a -> (%eax)
+
+===========================================================================
+FINAL SUMMARY:
+
+DUPLICATE ERROR COUNTS:
+
+SUPPRESSIONS USED:
+
+ERRORS FOUND:
+      1 unique,     1 total unaddressable access(es)
+      0 unique,     0 total uninitialized access(es)
+      0 unique,     0 total invalid heap argument(s)
+      0 unique,     0 total GDI usage error(s)
+      0 unique,     0 total handle leak(s)
+      0 unique,     0 total warning(s)
+      0 unique,     0 total,      0 byte(s) of leak(s)
+      0 unique,     0 total,      0 byte(s) of possible leak(s)
+ERRORS IGNORED:
+      1 potential error(s) (suspected false positives)
+         (details: C:\Users\taylo\AppData\Roaming\Dr. Memory\DrMemory-use_after_return.exe.32492.000\potential_errors.txt)
+      2 potential leak(s) (suspected false positives)
+         (details: C:\Users\taylo\AppData\Roaming\Dr. Memory\DrMemory-use_after_return.exe.32492.000\potential_errors.txt)
+     20 unique,    72 total,  12936 byte(s) of still-reachable allocation(s)
+         (re-run with "-show_reachable" for details)
+Details: C:\Users\taylo\AppData\Roaming\Dr. Memory\DrMemory-use_after_return.exe.32492.000\results.txt

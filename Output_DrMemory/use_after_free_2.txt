@@ -1,0 +1,39 @@
+Dr. Memory version 2.2.0 build 1 built on Jul  1 2019 00:42:20
+Windows version: WinVer=105;Rel=2009;Build=19043;Edition=Core
+Dr. Memory results for pid 23696: "use_after_free_2.exe"
+Application cmdline: "C:\Users\taylo\source\repos\use_after_free_2_drmem\use_after_free_2.exe"
+Recorded 117 suppression(s) from default C:\Program Files (x86)\Dr. Memory\bin\suppress-default.txt
+
+Error #1: UNADDRESSABLE ACCESS of freed memory: reading 0x012955bd-0x012955be 1 byte(s)
+# 0 main               [C:\Users\taylo\source\repos\use_after_free_2_drmem\use_after_free_2.c:7]
+Note: @0:00:00.326 in thread 13924
+Note: prev lower malloc:  0x01295158-0x01295598
+Note: 0x012955bd-0x012955be overlaps memory 0x012955b8-0x012955c2 that was freed here:
+Note: # 0 replace_free               [d:\drmemory_package\common\alloc_replace.c:2707]
+Note: # 1 main                       [C:\Users\taylo\source\repos\use_after_free_2_drmem\use_after_free_2.c:5]
+Note: instruction: movsx  (%eax,%edx) -> %eax
+
+===========================================================================
+FINAL SUMMARY:
+
+DUPLICATE ERROR COUNTS:
+
+SUPPRESSIONS USED:
+
+ERRORS FOUND:
+      1 unique,     1 total unaddressable access(es)
+      0 unique,     0 total uninitialized access(es)
+      0 unique,     0 total invalid heap argument(s)
+      0 unique,     0 total GDI usage error(s)
+      0 unique,     0 total handle leak(s)
+      0 unique,     0 total warning(s)
+      0 unique,     0 total,      0 byte(s) of leak(s)
+      0 unique,     0 total,      0 byte(s) of possible leak(s)
+ERRORS IGNORED:
+      1 potential error(s) (suspected false positives)
+         (details: C:\Users\taylo\AppData\Roaming\Dr. Memory\DrMemory-use_after_free_2.exe.23696.000\potential_errors.txt)
+      2 potential leak(s) (suspected false positives)
+         (details: C:\Users\taylo\AppData\Roaming\Dr. Memory\DrMemory-use_after_free_2.exe.23696.000\potential_errors.txt)
+     20 unique,    72 total,  12936 byte(s) of still-reachable allocation(s)
+         (re-run with "-show_reachable" for details)
+Details: C:\Users\taylo\AppData\Roaming\Dr. Memory\DrMemory-use_after_free_2.exe.23696.000\results.txt

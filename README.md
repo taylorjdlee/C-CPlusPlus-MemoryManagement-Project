@@ -7,7 +7,14 @@
 * Download and install valgrind via the command 'sudo apt-get install valgrind'
 * Test via the command 'valgrind --tool=memcheck --leak-check=yes --show-reachable=yes --num-callers=20 --track-fds=yes ./test' which will produce an output
 
-### 2. Dr.Memory (Windows)
+### 2. AddressSanitizer (Windows)
+
+* Download Microsoft Visual Studio https://visualstudio.microsoft.com/
+* For C programs use `cl uninitialised_memory_write.c /fsanitize=address /Zi` in the visual studio command line to create an executable to be tested or `cl uninitialised_memory_write.cpp /fsanitize=address /Zi` for C++ programs
+* Run the .exe to get your AddressSanitizer output
+* Follow this link for additional help https://docs.microsoft.com/en-us/cpp/sanitizers/asan?view=msvc-160
+
+### 3. Dr.Memory (Windows)
 
 * Download Microsoft Visual Studio https://visualstudio.microsoft.com/
 * For C programs use `cl /Zi /MT /EHsc /Oy- /Ob0 /test.exe test.c` in the visual studio command line to create an executable to be tested or `cl /Zi /MT /EHsc /Oy- /Ob0 /test.exe test.cpp` for C++ programs

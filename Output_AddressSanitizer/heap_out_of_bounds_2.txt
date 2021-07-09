@@ -1,0 +1,53 @@
+C:\Users\taylo\source\repos\heap_out_of_bounds_2_asan>heap_out_of_bounds_2.exe
+=================================================================
+==22956==ERROR: AddressSanitizer: heap-buffer-overflow on address 0x03903fd4 at pc 0x00a2122c bp 0x005ffb80 sp 0x005ffb74
+READ of size 4 at 0x03903fd4 thread T0
+    #0 0xa2122b in main C:\Users\taylo\source\repos\heap_out_of_bounds_2_asan\heap_out_of_bounds_2.cpp:4
+    #1 0xa58c3b in __scrt_common_main_seh d:\agent\_work\4\s\src\vctools\crt\vcstartup\src\startup\exe_common.inl:288
+    #2 0x7765fa28 in BaseThreadInitThunk+0x18 (C:\Windows\System32\KERNEL32.DLL+0x6b81fa28)
+    #3 0x77d97a9d in RtlGetAppContainerNamedObjectPath+0x11d (C:\Windows\SYSTEM32\ntdll.dll+0x4b2e7a9d)
+    #4 0x77d97a6d in RtlGetAppContainerNamedObjectPath+0xed (C:\Windows\SYSTEM32\ntdll.dll+0x4b2e7a6d)
+
+0x03903fd4 is located 4 bytes to the right of 400-byte region [0x03903e40,0x03903fd0)
+allocated by thread T0 here:
+    #0 0xa5766d in operator new[] D:\agent\_work\4\s\src\vctools\crt\asan\llvm\compiler-rt\lib\asan\asan_new_delete.cpp:102
+    #1 0xa2118f in main C:\Users\taylo\source\repos\heap_out_of_bounds_2_asan\heap_out_of_bounds_2.cpp:2
+    #2 0xa58c3b in __scrt_common_main_seh d:\agent\_work\4\s\src\vctools\crt\vcstartup\src\startup\exe_common.inl:288
+    #3 0x7765fa28 in BaseThreadInitThunk+0x18 (C:\Windows\System32\KERNEL32.DLL+0x6b81fa28)
+    #4 0x77d97a9d in RtlGetAppContainerNamedObjectPath+0x11d (C:\Windows\SYSTEM32\ntdll.dll+0x4b2e7a9d)
+    #5 0x77d97a6d in RtlGetAppContainerNamedObjectPath+0xed (C:\Windows\SYSTEM32\ntdll.dll+0x4b2e7a6d)
+
+SUMMARY: AddressSanitizer: heap-buffer-overflow C:\Users\taylo\source\repos\heap_out_of_bounds_2_asan\heap_out_of_bounds_2.cpp:4 in main
+Shadow bytes around the buggy address:
+  0x307207a0: fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd
+  0x307207b0: fd fd fd fd fd fd fd fd fd fd fd fd fd fa fa fa
+  0x307207c0: fa fa fa fa fa fa fa fa 00 00 00 00 00 00 00 00
+  0x307207d0: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x307207e0: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+=>0x307207f0: 00 00 00 00 00 00 00 00 00 00[fa]fa fa fa fa fa
+  0x30720800: fa fa fa fa fa fa fa fa 00 00 00 00 00 00 00 00
+  0x30720810: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x30720820: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x30720830: 00 00 00 00 00 00 00 00 00 00 00 00 00 04 fa fa
+  0x30720840: fa fa fa fa fa fa fa fa 00 00 00 00 00 00 00 00
+Shadow byte legend (one shadow byte represents 8 application bytes):
+  Addressable:           00
+  Partially addressable: 01 02 03 04 05 06 07
+  Heap left redzone:       fa
+  Freed heap region:       fd
+  Stack left redzone:      f1
+  Stack mid redzone:       f2
+  Stack right redzone:     f3
+  Stack after return:      f5
+  Stack use after scope:   f8
+  Global redzone:          f9
+  Global init order:       f6
+  Poisoned by user:        f7
+  Container overflow:      fc
+  Array cookie:            ac
+  Intra object redzone:    bb
+  ASan internal:           fe
+  Left alloca redzone:     ca
+  Right alloca redzone:    cb
+  Shadow gap:              cc
+==22956==ABORTING

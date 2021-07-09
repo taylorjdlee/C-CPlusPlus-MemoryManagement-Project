@@ -1,0 +1,46 @@
+Dr. Memory version 2.2.0 build 1 built on Jul  1 2019 00:42:20
+Windows version: WinVer=105;Rel=2009;Build=19043;Edition=Core
+Dr. Memory results for pid 19804: "use_after_free.exe"
+Application cmdline: "C:\Users\taylo\source\repos\use_after_free_drmem\use_after_free.exe"
+Recorded 117 suppression(s) from default C:\Program Files (x86)\Dr. Memory\bin\suppress-default.txt
+
+Error #1: UNADDRESSABLE ACCESS of freed memory: reading 0x016755f0-0x016755f1 1 byte(s)
+# 0 __crt_stdio_output::output_processor<>::process                     [minkernel\crts\ucrt\inc\corecrt_internal_stdio_output.h:1677]
+# 1 <lambda_0be4ab1c2a6918fda4e39227d83ea893>::operator()               [minkernel\crts\ucrt\src\appcrt\stdio\output.cpp:49]
+# 2 __crt_seh_guarded_call<>::operator()<>                              [VCCRT\vcruntime\inc\internal_shared.h:204]
+# 3 __stdio_common_vfprintf                                             [minkernel\crts\ucrt\src\appcrt\stdio\output.cpp:61]
+# 4 _vfprintf_l                                                         [C:\Program Files (x86)\Windows Kits\10\include\10.0.19041.0\ucrt\stdio.h:645]
+# 5 printf                                                              [C:\Program Files (x86)\Windows Kits\10\include\10.0.19041.0\ucrt\stdio.h:960]
+# 6 main                                                                [C:\Users\taylo\source\repos\use_after_free_drmem\use_after_free.c:14]
+Note: @0:00:00.343 in thread 3328
+Note: next higher malloc: 0x01675620-0x01676620
+Note: prev lower malloc:  0x01675158-0x01675598
+Note: 0x016755f0-0x016755f1 overlaps memory 0x016755f0-0x016755fc that was freed here:
+Note: # 0 replace_free               [d:\drmemory_package\common\alloc_replace.c:2707]
+Note: # 1 main                       [C:\Users\taylo\source\repos\use_after_free_drmem\use_after_free.c:13]
+Note: instruction: mov    (%eax) -> %al
+
+===========================================================================
+FINAL SUMMARY:
+
+DUPLICATE ERROR COUNTS:
+
+SUPPRESSIONS USED:
+
+ERRORS FOUND:
+      1 unique,     1 total unaddressable access(es)
+      0 unique,     0 total uninitialized access(es)
+      0 unique,     0 total invalid heap argument(s)
+      0 unique,     0 total GDI usage error(s)
+      0 unique,     0 total handle leak(s)
+      0 unique,     0 total warning(s)
+      0 unique,     0 total,      0 byte(s) of leak(s)
+      0 unique,     0 total,      0 byte(s) of possible leak(s)
+ERRORS IGNORED:
+      1 potential error(s) (suspected false positives)
+         (details: C:\Users\taylo\AppData\Roaming\Dr. Memory\DrMemory-use_after_free.exe.19804.000\potential_errors.txt)
+      2 potential leak(s) (suspected false positives)
+         (details: C:\Users\taylo\AppData\Roaming\Dr. Memory\DrMemory-use_after_free.exe.19804.000\potential_errors.txt)
+     21 unique,    73 total,  17028 byte(s) of still-reachable allocation(s)
+         (re-run with "-show_reachable" for details)
+Details: C:\Users\taylo\AppData\Roaming\Dr. Memory\DrMemory-use_after_free.exe.19804.000\results.txt

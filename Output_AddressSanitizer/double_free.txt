@@ -1,0 +1,29 @@
+C:\Users\taylo\source\repos\double_free_asan>double_free.exe
+=================================================================
+==22480==ERROR: AddressSanitizer: attempting double-free on 0x027006d0 in thread T0:
+    #0 0x7d2204 in free D:\agent\_work\4\s\src\vctools\crt\asan\llvm\compiler-rt\lib\asan\asan_malloc_win.cpp:110
+    #1 0x7b11be in main C:\Users\taylo\source\repos\double_free_asan\double_free.c:14
+    #2 0x7e8c3b in __scrt_common_main_seh d:\agent\_work\4\s\src\vctools\crt\vcstartup\src\startup\exe_common.inl:288
+    #3 0x7765fa28 in BaseThreadInitThunk+0x18 (C:\Windows\System32\KERNEL32.DLL+0x6b81fa28)
+    #4 0x77d97a9d in RtlGetAppContainerNamedObjectPath+0x11d (C:\Windows\SYSTEM32\ntdll.dll+0x4b2e7a9d)
+    #5 0x77d97a6d in RtlGetAppContainerNamedObjectPath+0xed (C:\Windows\SYSTEM32\ntdll.dll+0x4b2e7a6d)
+
+0x027006d0 is located 0 bytes inside of 12-byte region [0x027006d0,0x027006dc)
+freed by thread T0 here:
+    #0 0x7d21f1 in free D:\agent\_work\4\s\src\vctools\crt\asan\llvm\compiler-rt\lib\asan\asan_malloc_win.cpp:109
+    #1 0x7b11b2 in main C:\Users\taylo\source\repos\double_free_asan\double_free.c:13
+    #2 0x7e8c3b in __scrt_common_main_seh d:\agent\_work\4\s\src\vctools\crt\vcstartup\src\startup\exe_common.inl:288
+    #3 0x7765fa28 in BaseThreadInitThunk+0x18 (C:\Windows\System32\KERNEL32.DLL+0x6b81fa28)
+    #4 0x77d97a9d in RtlGetAppContainerNamedObjectPath+0x11d (C:\Windows\SYSTEM32\ntdll.dll+0x4b2e7a9d)
+    #5 0x77d97a6d in RtlGetAppContainerNamedObjectPath+0xed (C:\Windows\SYSTEM32\ntdll.dll+0x4b2e7a6d)
+
+previously allocated by thread T0 here:
+    #0 0x7d22f5 in malloc D:\agent\_work\4\s\src\vctools\crt\asan\llvm\compiler-rt\lib\asan\asan_malloc_win.cpp:118
+    #1 0x7b11a3 in main C:\Users\taylo\source\repos\double_free_asan\double_free.c:12
+    #2 0x7e8c3b in __scrt_common_main_seh d:\agent\_work\4\s\src\vctools\crt\vcstartup\src\startup\exe_common.inl:288
+    #3 0x7765fa28 in BaseThreadInitThunk+0x18 (C:\Windows\System32\KERNEL32.DLL+0x6b81fa28)
+    #4 0x77d97a9d in RtlGetAppContainerNamedObjectPath+0x11d (C:\Windows\SYSTEM32\ntdll.dll+0x4b2e7a9d)
+    #5 0x77d97a6d in RtlGetAppContainerNamedObjectPath+0xed (C:\Windows\SYSTEM32\ntdll.dll+0x4b2e7a6d)
+
+SUMMARY: AddressSanitizer: double-free D:\agent\_work\4\s\src\vctools\crt\asan\llvm\compiler-rt\lib\asan\asan_malloc_win.cpp:110 in free
+==22480==ABORTING

@@ -1,0 +1,45 @@
+C:\Users\taylo\source\repos\global_out_of_bounds_asan>global_out_of_bounds.exe
+=================================================================
+==10012==ERROR: AddressSanitizer: global-buffer-overflow on address 0x0077b214 at pc 0x006e11c8 bp 0x00d2fc74 sp 0x00d2fc68
+READ of size 4 at 0x0077b214 thread T0
+    #0 0x6e11c7 in main C:\Users\taylo\source\repos\global_out_of_bounds_asan\global_out_of_bounds.c:3
+    #1 0x718bdb in __scrt_common_main_seh d:\agent\_work\4\s\src\vctools\crt\vcstartup\src\startup\exe_common.inl:288
+    #2 0x7765fa28 in BaseThreadInitThunk+0x18 (C:\Windows\System32\KERNEL32.DLL+0x6b81fa28)
+    #3 0x77d97a9d in RtlGetAppContainerNamedObjectPath+0x11d (C:\Windows\SYSTEM32\ntdll.dll+0x4b2e7a9d)
+    #4 0x77d97a6d in RtlGetAppContainerNamedObjectPath+0xed (C:\Windows\SYSTEM32\ntdll.dll+0x4b2e7a6d)
+
+0x0077b214 is located 4 bytes to the right of global variable 'global_array' defined in 'global_out_of_bounds.c:1:4' (0x77b080) of size 400
+SUMMARY: AddressSanitizer: global-buffer-overflow C:\Users\taylo\source\repos\global_out_of_bounds_asan\global_out_of_bounds.c:3 in main
+Shadow bytes around the buggy address:
+  0x300ef5f0: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x300ef600: 00 00 00 00 f9 f9 f9 f9 00 00 00 00 00 00 00 00
+  0x300ef610: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x300ef620: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x300ef630: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+=>0x300ef640: 00 00[f9]f9 f9 f9 f9 f9 f9 f9 f9 f9 f9 f9 f9 f9
+  0x300ef650: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x300ef660: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x300ef670: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x300ef680: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x300ef690: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+Shadow byte legend (one shadow byte represents 8 application bytes):
+  Addressable:           00
+  Partially addressable: 01 02 03 04 05 06 07
+  Heap left redzone:       fa
+  Freed heap region:       fd
+  Stack left redzone:      f1
+  Stack mid redzone:       f2
+  Stack right redzone:     f3
+  Stack after return:      f5
+  Stack use after scope:   f8
+  Global redzone:          f9
+  Global init order:       f6
+  Poisoned by user:        f7
+  Container overflow:      fc
+  Array cookie:            ac
+  Intra object redzone:    bb
+  ASan internal:           fe
+  Left alloca redzone:     ca
+  Right alloca redzone:    cb
+  Shadow gap:              cc
+==10012==ABORTING

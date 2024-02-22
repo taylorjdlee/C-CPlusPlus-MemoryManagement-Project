@@ -1,4 +1,4 @@
-# C/C++-MemoryManagmentProject
+# C/C++MemoryManagmentProject
 
 ### 1. Valgrind (Linux)
 

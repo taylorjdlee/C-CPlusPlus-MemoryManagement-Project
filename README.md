@@ -1,4 +1,4 @@
-# ece-654-memManageProject
+# C/C++-MemoryManagmentProject
 
 ### 1. Valgrind (Linux)
 
